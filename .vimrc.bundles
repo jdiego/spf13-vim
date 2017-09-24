@@ -74,7 +74,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        let g:spf13_bundle_groups=['general', 'writing', 'youcompleteme', 'programming',  'python', 'javascript', 'html', 'misc',]
     endif
 
     " To override all the included bundles, add the following to your
@@ -115,7 +115,7 @@
                 Plug 'vim-scripts/restore_view.vim'
             endif
             Plug 'mhinz/vim-signify'
-            Plug 'tpope/vim-abolish.git'
+            Plug 'tpope/tpope-vim-abolish.git'
             Plug 'osyo-manga/vim-over'
             Plug 'kana/vim-textobj-user'
             Plug 'kana/vim-textobj-indent'
@@ -158,7 +158,16 @@
                 source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
             endif
         elseif count(g:spf13_bundle_groups, 'youcompleteme')
-            Plug 'Valloric/YouCompleteMe'
+            function! BuildYCM(info)
+                " info is a dictionary with 3 fields
+                " - name:   name of the plugin
+                " - status: 'installed', 'updated', or 'unchanged'
+                " - force:  set on PlugInstall! or PlugUpdate!
+                if a:info.status == 'installed' || a:info.force
+                    !/usr/local/bin/python2.7 install.py --clang-completer
+                endif
+            endfunction
+            Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
             Plug 'SirVer/ultisnips'
             Plug 'honza/vim-snippets'
         elseif count(g:spf13_bundle_groups, 'neocomplcache')
