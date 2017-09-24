@@ -10,9 +10,21 @@ die() {
     warn "$1"
     exit 1
 }
-
+cd $HOME
+# Remove distribution folders
 rm $HOME/.vimrc
 rm $HOME/.vimrc.bundles
-rm $HOME/.vim
+rm $HOME/.vimrc.before
+
+# Remove fork folder
+rm $HOME/.vimrc.before.fork
+rm $HOME/.vimrc.bundles.fork
+rm $HOME/.vimrc.fork
+
+cd $HOME
+rm -rf .vimbackup .vimswap .vimundo .vimviews 
+rm -rf $HOME/.vim
 
 rm -rf $app_dir
+cd $HOME
+
