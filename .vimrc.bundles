@@ -136,12 +136,14 @@
             " Pick one of the checksyntax, jslint, or syntastic
             Plug 'scrooloose/syntastic'
             Plug 'tpope/vim-fugitive'
-            Plug 'mattn/webapi-vim'
             Plug 'mattn/gist-vim'
             Plug 'scrooloose/nerdcommenter'
+            Plug 'Xuyuanp/nerdtree-git-plugin'
             Plug 'tpope/vim-commentary'
             Plug 'godlygeek/tabular'
-            Plug 'luochen1990/rainbow'
+            Plug 'airblade/vim-gitgutter'
+            Plug 'vim-scripts/Conque-GDB'
+            Plug 'junegunn/vim-easy-align'
             if executable('ctags')
                 Plug 'majutsushi/tagbar'
             endif
