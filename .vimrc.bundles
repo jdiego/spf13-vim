@@ -142,7 +142,6 @@
             Plug 'tpope/vim-commentary'
             Plug 'godlygeek/tabular'
             Plug 'airblade/vim-gitgutter'
-            Plug 'vim-scripts/Conque-GDB'
             Plug 'junegunn/vim-easy-align'
             if executable('ctags')
                 Plug 'majutsushi/tagbar'
