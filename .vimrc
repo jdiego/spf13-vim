@@ -29,6 +29,13 @@
 "   limitations under the License.
 " }
 
+" Temporary fix - Forcing python 3
+if has('python3')
+	silent! python3 1
+endif
+
+
+
 " Environment {
 
     " Identify platform {
